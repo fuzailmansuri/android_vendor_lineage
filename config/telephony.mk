@@ -17,7 +17,7 @@ PRODUCT_PACKAGES += \
     Stk
 
 # Default ringtone
-ifneq ($(WITH_GMS),true)
+ifeq (,$(wildcard vendor/pixel/sounds))
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.ringtone=Orion.ogg
 endif
