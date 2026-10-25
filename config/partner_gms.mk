@@ -1,3 +1,7 @@
+ifneq (,$(wildcard vendor/pixel/gms))
+    WITH_GMS ?= true
+endif
+
 ifeq ($(WITH_GMS),true)
     # Special handling for Android TV
     ifeq ($(PRODUCT_IS_ATV),true)
@@ -36,6 +40,15 @@ ifeq ($(WITH_GMS),true)
             else
                 $(call inherit-product-if-exists, vendor/partner_gms/products/gms.mk)
             endif
+        endif
+
+        ifneq (,$(wildcard vendor/pixel/gms))
+            $(call inherit-product-if-exists, vendor/pixel/clocks/products/clocks.mk)
+            $(call inherit-product-if-exists, vendor/pixel/gms/products/gms.mk)
+            $(call inherit-product-if-exists, vendor/pixel/gsans/products/gsans.mk)
+            $(call inherit-product-if-exists, vendor/pixel/launcher/products/launcher.mk)
+            $(call inherit-product-if-exists, vendor/pixel/sounds/products/sounds.mk)
+            $(call inherit-product-if-exists, vendor/pixel/themepicker/products/themepicker.mk)
         endif
 
         ifneq (,$(wildcard vendor/partner_modules))
