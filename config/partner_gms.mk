@@ -49,6 +49,14 @@ ifeq ($(WITH_GMS),true)
             $(call inherit-product-if-exists, vendor/pixel/launcher/products/launcher.mk)
             $(call inherit-product-if-exists, vendor/pixel/sounds/products/sounds.mk)
             $(call inherit-product-if-exists, vendor/pixel/themepicker/products/themepicker.mk)
+
+            PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+                system/apex/com.google.android.extservices.apex \
+                system/app/GoogleExtShared/GoogleExtShared.apk \
+                system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+                system/lib64/libtensorflowlite_jni.so \
+                system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
+                system/priv-app/TagGoogle/TagGoogle.apk
         endif
 
         ifneq (,$(wildcard vendor/partner_modules))
