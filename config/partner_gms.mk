@@ -54,6 +54,7 @@ ifeq ($(WITH_GMS),true)
                 system/apex/com.google.android.extservices.apex \
                 system/app/GoogleExtShared/GoogleExtShared.apk \
                 system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+                system/etc/permissions/privapp-permissions-google.xml \
                 system/lib64/libtensorflowlite_jni.so \
                 system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk \
                 system/priv-app/TagGoogle/TagGoogle.apk
